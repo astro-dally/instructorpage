@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Import necessary components
+import InstructorRequests from './Components/InstructorRequests'; // Assuming InstructorRequests is a separate component
+import RequestPage from './Components/RequestPage'; // Assuming RequestPage is a separate component
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>  {/* Define routes */}
+        <Route path="/" element={<InstructorRequests />} />  {/* Route for InstructorRequests */}
+        <Route path="/request-page" element={<RequestPage />} />  {/* Route for RequestPage */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
