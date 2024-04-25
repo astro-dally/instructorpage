@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import Link for routing
+import { Card } from 'react-bootstrap'; 
+import "bootstrap/dist/css/bootstrap.min.css";
+import '../App.css';
 
 // InstructorRequests component to handle instructor requests
 export default function InstructorRequests() {
@@ -33,19 +36,28 @@ export default function InstructorRequests() {
       <Link to="/request-page">  {/* Use Link for routing to RequestPage */}
         <button>View All Requests (RequestPage)</button>
       </Link>
-      {requests.map((request) => (
-        <div className="request-card" key={request.title}>
-          <h2>{request.title}</h2>
-          <p><strong>Reason:</strong> {request.reason}</p>
-          <p><strong>Date:</strong> {request.date}</p>
-          <button className="accept" onClick={() => handleAccept(request)}>
-            Accept
-          </button>
-          <button className="deny" onClick={() => handleDeny(request)}>
-            Deny
-          </button>
-        </div>
-      ))}
+      <div className="request-cards-container">
+        {requests.map((request) => (
+          <div className="request-card" key={request.title}>
+            <Card style={{ width: '18rem' }}>
+              <Card.Body>
+                <Card.Title>{request.title}</Card.Title>
+                <Card.Text>
+                  <strong>Reason:</strong> {request.reason}
+                  <br />
+                  <strong>Date:</strong> {request.date}
+                </Card.Text>
+                <button className="accept" onClick={() => handleAccept(request)}>
+                  Accept
+                </button>
+                <button className="deny" onClick={() => handleDeny(request)}>
+                  Deny
+                </button>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

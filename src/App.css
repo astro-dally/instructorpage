@@ -1,41 +1,43 @@
-/* .App {
-  text-align: center;
+.request-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust the gap between cards */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.request-card {
+  width: calc(33.33% - 20px); /* Adjust the width of each card */
+  margin-bottom: 20px; /* Add some bottom margin to each card */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.request-card .card {
+  height: 100%;
+  transition: transform 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.request-card .card:hover {
+  transform: translateY(-5px); /* Add a slight lift effect on hover */
+}
+
+.request-card .card-body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.request-card .card-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */.accept{
+.request-card .card-text {
+  flex-grow: 1; /* Allow the text to grow to fill the remaining space */
+}
+
+.request-card button {
+  margin-top: 10px; /* Add some top margin to the buttons */
+}
+
+.accept{
   background-color: green;
 }
 .deny{
